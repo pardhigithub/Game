@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/bootstrap.bundle.js"></script>
+    </head>
+<style>
+    body{
+        background-image: url("image/blue-gc9f379f6d_640.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+    
+    .btn{
+        width: 50%;
+        font-size: 80%;
+        margin-bottom: 2%;
+    }
+    .n{
+        margin-bottom: 5%;
+    }
+    
+    
+</style>
+
+<body>
+    <div class="n bg-danger text-white text-center p-2 rounded-5 ">
+        <b>GUESS THE RIGHT BUTTON</b>
+    </div>
+
+    <div class="container w-auto" >
+    
+    <div class="table-responsive bg-primary-subtle">
+        <div class="h2 bg-primary text-center p-2 text-danger-emphasis"id="num"> <i><b>Let's Play</b></i></div>
+
+        <table class="table text-center">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="btn btn-dark x" data-bs-toggle="modal" data-bs-target="#de">black</div>
+                    </td>
+                    <td>
+                        <div class="btn btn-success x" data-bs-toggle="modal" data-bs-target="#de">green</div>
+                    </td>
+                    <td>
+                        <div class="btn btn-info x" data-bs-toggle="modal" data-bs-target="#de">blue</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="btn x" data-bs-toggle="modal" data-bs-target="#de" style="background-color: pink;" >pink</div>
+                    </td>
+                    <td>
+                        <div class="btn x" data-bs-toggle="modal" data-bs-target="#de" style="background-color: yellow;" >yellow</div>
+                    </td>
+                    <td>
+                        <div class="btn btn-danger x" data-bs-toggle="modal" data-bs-target="#de">red</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="btn x" data-bs-toggle="modal" data-bs-target="#de" style="background-color: orange;" >orange</div>
+                    </td>
+                    <td>
+                        <div class="btn text-white x" data-bs-toggle="modal" data-bs-target="#de"style="background-color: purple;">purple</div>
+                    </td>
+                    <td>
+                        <div class="btn btn-light x" data-bs-toggle="modal" data-bs-target="#de">white</div>
+                    </td>
+                </tr>
+            </tbody> 
+            
+        </table>
+        <center>
+        <div class="btn btn-info btn-outline-dark text-center" onclick="resetx()">reset</div>
+        </center>
+        </div>
+
+        <div class="container text-white text-center">
+
+        </div>
+    
+        <script>
+            var d = document.getElementById("de");
+            var t = true
+            function anj() {
+                if (t) {
+                    d.removeAttribute("class")
+                }
+            }
+        </script>
+    </div>
+
+
+<div class="modal fade" id="an">
+     <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title h3 text-center">
+                    GAME RESULT
+                </div>
+                <button class="btn-close btn-danger"data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-success text-center h4">YOU WIN</div>
+        </div>
+     </div>
+</div>
+
+
+<div class="modal fade" id="de">
+    <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <div class="modal-title h3 text-center">
+                   GAME RESULT
+               </div>
+               <button class="btn-close btn-danger"data-bs-dismiss="modal"></button>
+           </div>
+           <div class="modal-body text-danger text-center h4">YOU LOSS</div>
+       </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+
+    let abc=document.getElementById("num");
+
+    function resetx(){
+        
+        var r=document.getElementsByClassName("x")
+
+        let rn=Math.floor(Math.random()*9)
+        // abc.innerHTML=rn
+
+        for (var i=0;i<9;i++){
+            
+            if (r[i].getAttribute("data-bs-target") =="#an"){
+                r[i].setAttribute("data-bs-target","#de")
+            }
+            
+            // raju[rn].classList.add("bg-danger")
+            console.log(rn)
+        }
+        r[rn].setAttribute("data-bs-target","#an");
+        
+}
+
+</script>
+</html>
